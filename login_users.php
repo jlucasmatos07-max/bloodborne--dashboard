@@ -68,6 +68,63 @@
     </main>
     </div>
 
+
+
+    <script>
+
+    <a href="lista.html">
+        Ver Lista de Usuários
+    </a>
+
+<script>
+
+    function cadastrarUsuario(){
+
+        let nome =
+            document.getElementById("nome").value;
+
+        let email =
+            document.getElementById("email").value;
+
+        // Validação
+        if(nome == "" || email == ""){
+
+            alert("Preencha todos os campos");
+
+            return;
+        }
+
+        // Pega lista do localStorage
+        let listaUsuarios =
+            JSON.parse(localStorage.getItem("db_usuarios")) || [];
+
+        // Cria objeto
+        let novoUsuario = {
+
+            nome: nome,
+            email: email
+        };
+
+        // Adiciona no array
+        listaUsuarios.push(novoUsuario);
+
+        // Salva no localStorage
+        localStorage.setItem(
+
+            "db_usuarios",
+
+            JSON.stringify(listaUsuarios)
+        );
+
+        alert("Usuário cadastrado");
+
+        // Limpa os inputs
+        document.getElementById("nome").value = "";
+        document.getElementById("email").value = "";
+    }
+
+    </script>
+
     </body>
 
 

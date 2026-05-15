@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+    function listarUsuarios(){
+
+        let listaUsuarios =
+
+            JSON.parse(localStorage.getItem("db_usuarios")) || [];
+
+        let tabela =
+
+            document.getElementById("tabelaUsuarios");
+
+        tabela.innerHTML = "";
+
+        for(let i = 0; i < listaUsuarios.length; i++){
+
+            tabela.innerHTML += `
+
+                <tr>
+
+                    <td>${listaUsuarios[i].nome}</td>
+
+                    <td>${listaUsuarios[i].email}</td>
+
+                    <td>
+
+                        <button onclick="editarUsuario(${i})">
+                            Editar
+                        </button>
+
+                        <button onclick="excluirUsuario(${i})">
+                            Excluir
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+        }
+    }
+
+
+    // DELETE
+    function excluirUsuario(index){
+
+        let listaUsuarios =
+
+            JSON.parse(localStorage.getItem("db_usuarios"));
+
+        listaUsuarios.splice(index, 1);
+
+        localStorage.setItem(
+
+            "db_usuarios",
+
+            JSON.stringify(listaUsuarios)
+        );
+
+        listarUsuarios();
+    }
+
+
+    // UPDATE
+    function editarUsuario(index){
+
+        let listaUsuarios =
+
+            JSON.parse(localStorage.getItem("db_usuarios"));
+
+        let novoNome =
+
+            prompt(
+                "Digite o novo nome",
+                listaUsuarios[index].nome
+            );
+
+        let novoEmail =
+
+            prompt(
+                "Digite o novo email",
+                listaUsuarios[index].email
+            );
+
+        if(novoNome == "" || novoEmail == ""){
+
+            alert("Campos inválidos");
+
+            return;
+        }
+
+        listaUsuarios[index].nome = novoNome;
+
+        listaUsuarios[index].email = novoEmail;
+
+        localStorage.setItem(
+
+            "db_usuarios",
+
+            JSON.stringify(listaUsuarios)
+        );
+
+        listarUsuarios();
+    }
+
+
+    listarUsuarios();
+    </script>
+</body>
+</html>

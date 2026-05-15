@@ -47,8 +47,8 @@
                     </tr>
                     <tr>
                         <td>02</td>
-                        <td>fernanda puget</td>
-                        <td>fernandapuget2525@example.com</td>
+                        <td>kwjgrhfjkm,se</td>
+                        <td>kwjgrhfjkm,se@example.com</td>
                         <td>editor</td>
                         <td><span class= "badge ativo">ativo</span></td>
                         <td> <a href= "#" class= "btn-acao btn-editar">
@@ -77,5 +77,10 @@
 
     </main>
     
+
+
+    <script>
+        
+    </script>
 </body>
 </html>
