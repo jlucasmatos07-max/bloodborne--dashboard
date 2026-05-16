@@ -75,6 +75,103 @@
                 </tbody>
             </table>
 
+
     </main>
+    <script>
+        // LISTAR
+function listarUsuarios(){
+
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("user_area.php")) || [];
+
+    let tabela =
+        document.getElementById("tabelaUsuarios");
+
+    tabela.innerHTML = "";
+
+    for(let i = 0; i < listaUsuarios.length; i++){
+
+        tabela.innerHTML += `
+
+            <tr>
+
+                <td>${listaUsuarios[i].nome}</td>
+
+                <td>${listaUsuarios[i].email}</td>
+
+                <td>
+
+                    <button onclick="editarUsuario(${i})">
+                        Editar
+                    </button>
+
+                    <button onclick="excluirUsuario(${i})">
+                        Excluir
+                    </button>
+
+                </td>
+
+            </tr>
+
+        `;
+    }
+}
+
+
+// EXCLUIR
+function excluirUsuario(index){
+
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("user_area.php")) || [];
+
+    listaUsuarios.splice(index, 1);
+
+    localStorage.setItem(
+        "user_area.php",
+        JSON.stringify(listaUsuarios)
+    );
+
+    listarUsuarios();
+}
+
+
+// EDITAR
+function editarUsuario(index){
+
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("user_area.php")) || [];
+
+    let novoNome = prompt(
+        "Digite o novo nome",
+        listaUsuarios[index].nome
+    );
+
+    let novoEmail = prompt(
+        "Digite o novo email",
+        listaUsuarios[index].email
+    );
+
+    if(novoNome == "" || novoEmail == ""){
+
+        alert("Campos inválidos");
+
+        return;
+    }
+
+    listaUsuarios[index].nome = novoNome;
+    listaUsuarios[index].email = novoEmail;
+
+    localStorage.setItem(
+        "user_area.php",
+        JSON.stringify(listaUsuarios)
+    );
+
+    listarUsuarios();
+}
+
+
+// CARREGA A LISTA
+listarUsuarios();
+    </script>
 </body>
 </html>
