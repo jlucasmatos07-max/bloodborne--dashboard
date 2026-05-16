@@ -8,111 +8,100 @@
 <body>
     
     <script>
-     function listarUsuarios(){
+// LISTAR
+function listarUsuarios(){
 
-        let listaUsuarios =
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("db_usuarios")) || [];
 
-            JSON.parse(localStorage.getItem("db_usuarios")) || [];
+    let tabela =
+        document.getElementById("tabelaUsuarios");
 
-        let tabela =
+    tabela.innerHTML = "";
 
-            document.getElementById("tabelaUsuarios");
+    for(let i = 0; i < listaUsuarios.length; i++){
 
-        tabela.innerHTML = "";
+        tabela.innerHTML += `
 
-        for(let i = 0; i < listaUsuarios.length; i++){
+            <tr>
 
-            tabela.innerHTML += `
+                <td>${listaUsuarios[i].nome}</td>
 
-                <tr>
+                <td>${listaUsuarios[i].email}</td>
 
-                    <td>${listaUsuarios[i].nome}</td>
+                <td>
 
-                    <td>${listaUsuarios[i].email}</td>
+                    <button onclick="editarUsuario(${i})">
+                        Editar
+                    </button>
 
-                    <td>
+                    <button onclick="excluirUsuario(${i})">
+                        Excluir
+                    </button>
 
-                        <button onclick="editarUsuario(${i})">
-                            Editar
-                        </button>
+                </td>
 
-                        <button onclick="excluirUsuario(${i})">
-                            Excluir
-                        </button>
+            </tr>
 
-                    </td>
-
-                </tr>
-
-            `;
-        }
+        `;
     }
+}
 
 
-    // DELETE
-    function excluirUsuario(index){
+// EXCLUIR
+function excluirUsuario(index){
 
-        let listaUsuarios =
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("db_usuarios"));
 
-            JSON.parse(localStorage.getItem("db_usuarios"));
+    listaUsuarios.splice(index, 1);
 
-        listaUsuarios.splice(index, 1);
-
-        localStorage.setItem(
-
-            "db_usuarios",
-
-            JSON.stringify(listaUsuarios)
-        );
-
-        listarUsuarios();
-    }
-
-
-    // UPDATE
-    function editarUsuario(index){
-
-        let listaUsuarios =
-
-            JSON.parse(localStorage.getItem("db_usuarios"));
-
-        let novoNome =
-
-            prompt(
-                "Digite o novo nome",
-                listaUsuarios[index].nome
-            );
-
-        let novoEmail =
-
-            prompt(
-                "Digite o novo email",
-                listaUsuarios[index].email
-            );
-
-        if(novoNome == "" || novoEmail == ""){
-
-            alert("Campos inválidos");
-
-            return;
-        }
-
-        listaUsuarios[index].nome = novoNome;
-
-        listaUsuarios[index].email = novoEmail;
-
-        localStorage.setItem(
-
-            "db_usuarios",
-
-            JSON.stringify(listaUsuarios)
-        );
-
-        listarUsuarios();
-    }
-
+    localStorage.setItem(
+        "db_usuarios",
+        JSON.stringify(listaUsuarios)
+    );
 
     listarUsuarios();
+}
+
+
+// EDITAR
+function editarUsuario(index){
+
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("db_usuarios"));
+
+    let novoNome = prompt(
+        "Digite o novo nome",
+        listaUsuarios[index].nome
+    );
+
+    let novoEmail = prompt(
+        "Digite o novo email",
+        listaUsuarios[index].email
+    );
+
+    if(novoNome == "" || novoEmail == ""){
+
+        alert("Campos inválidos");
+
+        return;
+    }
+
+    listaUsuarios[index].nome = novoNome;
+    listaUsuarios[index].email = novoEmail;
+
+    localStorage.setItem(
+        "db_usuarios",
+        JSON.stringify(listaUsuarios)
+    );
+
+    listarUsuarios();
+}
+
+
+// CARREGA A LISTA
+listarUsuarios();
     </script>
 </body>
 </html>

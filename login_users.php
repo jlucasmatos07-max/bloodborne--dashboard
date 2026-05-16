@@ -74,32 +74,44 @@
 
 <script>
 
-function cadastrar(){
+function cadastrarUsuario(){
 
     let nome = document.getElementById("nome").value;
     let email = document.getElementById("email").value;
 
+    // validação
     if(nome == "" || email == ""){
-        alert("Preencha tudo");
+
+        alert("Preencha todos os campos");
+
         return;
     }
 
-    let usuarios =
+    // pega lista salva
+    let listaUsuarios =
         JSON.parse(localStorage.getItem("db_usuarios")) || [];
 
-    usuarios.push({
+    // cria objeto
+    let novoUsuario = {
         nome: nome,
         email: email
-    });
+    };
 
-    localStorage.setItem("db_usuarios", JSON.stringify(usuarios));
+    // adiciona usuário
+    listaUsuarios.push(novoUsuario);
 
-    alert("Salvo!");
+    // salva no localStorage
+    localStorage.setItem(
+        "db_usuarios",
+        JSON.stringify(listaUsuarios)
+    );
 
+    alert("Usuário cadastrado com sucesso");
+
+    // limpa campos
     document.getElementById("nome").value = "";
     document.getElementById("email").value = "";
 }
-
 
     </script>
 
