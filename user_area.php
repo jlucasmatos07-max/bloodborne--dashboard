@@ -82,7 +82,7 @@
 function listarUsuarios(){
 
     let listaUsuarios =
-        JSON.parse(localStorage.getItem("login_users")) || [];
+        JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
 
     let tabela =
         document.getElementById("tabelaUsuarios");
@@ -122,12 +122,12 @@ function listarUsuarios(){
 function excluirUsuario(index){
 
     let listaUsuarios =
-        JSON.parse(localStorage.getItem("login_users.php")) || [];
+        JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
 
     listaUsuarios.splice(index, 1);
 
     localStorage.setItem(
-        "login_users.php",
+        "bancoUsuarios",
         JSON.stringify(listaUsuarios)
     );
 
@@ -139,7 +139,7 @@ function excluirUsuario(index){
 function editarUsuario(index){
 
     let listaUsuarios =
-        JSON.parse(localStorage.getItem("login_users.php")) || [];
+        JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
 
     let novoNome = prompt(
         "Digite o novo nome",
@@ -162,7 +162,7 @@ function editarUsuario(index){
     listaUsuarios[index].email = novoEmail;
 
     localStorage.setItem(
-        "login_users.php",
+        "bancoUsuarios",
         JSON.stringify(listaUsuarios)
     );
 
