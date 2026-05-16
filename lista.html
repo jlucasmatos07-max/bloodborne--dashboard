@@ -1,119 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de usuários</title>
 </head>
 <body>
-    
-    <script>
-    
-    function listarUsuarios(){
 
-        let listaUsuarios =
+<h1>Lista de usuários</h1>
 
-            JSON.parse(localStorage.getItem("db_usuarios")) || [];
+<table border="1">
 
-        let tabela =
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
 
-            document.getElementById("tabelaUsuarios");
+    <tbody id="tabelaUsuarios"></tbody>
 
-        tabela.innerHTML = "";
+</table>
 
-        for(let i = 0; i < listaUsuarios.length; i++){
+<script>
 
-            tabela.innerHTML += `
+function listarUsuarios(){
 
-                <tr>
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("db_usuarios")) || [];
 
-                    <td>${listaUsuarios[i].nome}</td>
+    let tabela =
+        document.getElementById("tabelaUsuarios");
 
-                    <td>${listaUsuarios[i].email}</td>
+    tabela.innerHTML = "";
 
-                    <td>
+    for(let i = 0; i < listaUsuarios.length; i++){
 
-                        <button onclick="editarUsuario(${i})">
-                            Editar
-                        </button>
+        tabela.innerHTML += `
+            <tr>
+                <td>${listaUsuarios[i].nome}</td>
+                <td>${listaUsuarios[i].email}</td>
+                <td>
+                    <button onclick="editarUsuario(${i})">
+                        Editar
+                    </button>
 
-                        <button onclick="excluirUsuario(${i})">
-                            Excluir
-                        </button>
-
-                    </td>
-
-                </tr>
-
-            `;
-        }
+                    <button onclick="excluirUsuario(${i})">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        `;
     }
+}
 
+function excluirUsuario(index){
 
-    // DELETE
-    function excluirUsuario(index){
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("db_usuarios"));
 
-        let listaUsuarios =
+    listaUsuarios.splice(index, 1);
 
-            JSON.parse(localStorage.getItem("db_usuarios"));
-
-        listaUsuarios.splice(index, 1);
-
-        localStorage.setItem(
-
-            "db_usuarios",
-
-            JSON.stringify(listaUsuarios)
-        );
-
-        listarUsuarios();
-    }
-
-
-    // UPDATE
-    function editarUsuario(index){
-
-        let listaUsuarios =
-
-            JSON.parse(localStorage.getItem("db_usuarios"));
-
-        let novoNome =
-
-            prompt(
-                "Digite o novo nome",
-                listaUsuarios[index].nome
-            );
-
-        let novoEmail =
-
-            prompt(
-                "Digite o novo email",
-                listaUsuarios[index].email
-            );
-
-        if(novoNome == "" || novoEmail == ""){
-
-            alert("Campos inválidos");
-
-            return;
-        }
-
-        listaUsuarios[index].nome = novoNome;
-
-        listaUsuarios[index].email = novoEmail;
-
-        localStorage.setItem(
-
-            "db_usuarios",
-
-            JSON.stringify(listaUsuarios)
-        );
-
-        listarUsuarios();
-    }
-
+    localStorage.setItem(
+        "db_usuarios",
+        JSON.stringify(listaUsuarios)
+    );
 
     listarUsuarios();
-    </script>
+}
+
+function editarUsuario(index){
+    let listaUsuarios =
+        JSON.parse(localStorage.getItem("db_usuarios")) || [];
+
+    let usuario = listaUsuarios[index];
+    if(!usuario) return;
+
+    let novoNome = prompt("Nome:", usuario.nome);
+    if(novoNome === null) return; // cancelado
+
+    let novoEmail = prompt("Email:", usuario.email);
+    if(novoEmail === null) return; // cancelado
+
+    usuario.nome = novoNome.trim();
+    usuario.email = novoEmail.trim();
+
+    listaUsuarios[index] = usuario;
+
+    localStorage.setItem("db_usuarios", JSON.stringify(listaUsuarios));
+
+    listarUsuarios();
+}
+
+// inicializa listagem ao carregar a página
+window.onload = listarUsuarios;
+
+</script>
+
 </body>
 </html>
