@@ -74,29 +74,24 @@
 
 <script>
 
-function cadastrarUsuario(){
+document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio do formulário
 
-    let nome = document.getElementById("nome").value;
-    let email = document.getElementById("email").value;
-    let senha = document.getElementById("senha").value;
-    let data = document.getElementById("data").value;
-    //let nivel = document.getElementById("nivel").value;
+    let bancoUsusarios = JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
 
-    // validação
-    if(nome == "" || email == "" || senha == "" || data == ""){
+    const novoUsuario =  {
+        nome: document.getElementById("nome").value,
+        data: document.getElementById("data").value,
+        email: document.getElementById("email").value,
+        senha: document.getElementById("senha").value,
+        nivel: document.getElementById("nivel").value
+    };
 
-        alert("Preencha todos os campos");
-
-        return;
-    }
-
-    const novoUsuario = {nome: inputNome, email: inputEmail, senha: inputSenha, data: inputData};
-    let listaUsuarios = JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
-    listaUsuarios.push(novoUsuario);
-    localStorage.setItem("bancoUsuarios", JSON.stringify(listaUsuarios));
+    bancoUsuarios.push(novoUsuario);
+    localStorage.setItem("bancoUsuarios", JSON.stringify(bancoUsuarios));
 
     alert("Usuário cadastrado com sucesso!");
-}
+});
 
     </script>
 

@@ -78,100 +78,22 @@
 
     </main>
     <script>
-        // LISTAR
-function listarUsuarios(){
 
-    let listaUsuarios =
-        JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
+    let bancoUsuarios = JSON.parse(localStorage.getItem('bancoUsuarios')) || [];
 
-    let tabela =
-        document.getElementById("tabelaUsuarios");
+    const listaUsuarios = document.getElementById('listaUsuarios');
 
-    tabela.innerHTML = "";
+    bancoUsuarios.forEach(function(usuario) {
+       
+    listaUsuarios.innerHTML += `
+        <tr>
+            <td>${usuario.nome}</td>
+            <td>${usuario.data}</td>
+            <td>${usuario.email}</td>
+        </tr>
+    `;
+    });
 
-    for(let i = 0; i < listaUsuarios.length; i++){
-
-        tabela.innerHTML += `
-
-            <tr>
-
-                <td>${listaUsuarios[i].nome}</td>
-
-                <td>${listaUsuarios[i].email}</td>
-
-                <td>
-
-                    <button onclick="editarUsuario(${i})">
-                        Editar
-                    </button>
-
-                    <button onclick="excluirUsuario(${i})">
-                        Excluir
-                    </button>
-
-                </td>
-
-            </tr>
-
-        `;
-    }
-}
-
-
-// EXCLUIR
-function excluirUsuario(index){
-
-    let listaUsuarios =
-        JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
-
-    listaUsuarios.splice(index, 1);
-
-    localStorage.setItem(
-        "bancoUsuarios",
-        JSON.stringify(listaUsuarios)
-    );
-
-    listarUsuarios();
-}
-
-
-// EDITAR
-function editarUsuario(index){
-
-    let listaUsuarios =
-        JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
-
-    let novoNome = prompt(
-        "Digite o novo nome",
-        listaUsuarios[index].nome
-    );
-
-    let novoEmail = prompt(
-        "Digite o novo email",
-        listaUsuarios[index].email
-    );
-
-    if(novoNome == "" || novoEmail == ""){
-
-        alert("Campos inválidos");
-
-        return;
-    }
-
-    listaUsuarios[index].nome = novoNome;
-    listaUsuarios[index].email = novoEmail;
-
-    localStorage.setItem(
-        "bancoUsuarios",
-        JSON.stringify(listaUsuarios)
-    );
-
-    listarUsuarios();
-}
-
-
-// CARREGA A LISTA
-listarUsuarios();
     </script>
 </body>
 </html>
