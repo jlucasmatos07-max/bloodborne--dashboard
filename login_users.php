@@ -22,7 +22,7 @@
         <form action="user_area.php" method="POST">
             <div class="form-group">
                 <label for="nome">nome completo</label>
-                <input type="text" id="nome" name="nome" placeholder="ex: lucas matos" required>
+                <input type="text" id="nome" name="nome" placeholder="ex: yasmin" required>
             </div>
 
             <div class="form-group">
@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 <label for="email">email</label>
-                <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required>
             </div>
 
             <div class="form-row">
@@ -51,10 +51,10 @@
                     <?php 
                     $nivelAcesso =2;
                     if ($nivelAcesso == 2) {
-                        echo '<span class="badge ativo"> </span>';
+                        echo '<span class="badge ativo">administrador</span>';
 
                     } else {
-                        echo '<span class="badge inativo">usúario</span>';
+                        echo '<span class="badge inativo">usuario</span>';
                     }
                     ?>
                  </div>
@@ -74,7 +74,7 @@
 
 <script>
 
-document.getElementById("user_area.php").addEventListener("submit", function(event) {
+document.getElementById("form-group").addEventListener("submit", function(event) {
     event.preventDefault(); // Impede o envio do formulário
 
     let bancoUsusarios = JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
