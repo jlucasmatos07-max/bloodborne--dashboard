@@ -1,0 +1,148 @@
+/*O pai de todos: Coloca menu e main lado a lado*/
+.dashboard-container {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+}
+
+main {
+    flex: 1;
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+nav {
+    width: 200px;
+    background-color: #2c3e50;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background o.3s;
+}
+
+nav a:hover {
+    background-color: #34495e;
+    color: #ffcc00;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background o.3s;
+}
+
+nav a:hover {
+    background-color: #34495e;
+    color: #ffcc00;
+}
+
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.perfil-usuario img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.container-card{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+article {
+    flex: 1;
+    min-width: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: o 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    color: #004a8d;
+    margin-bottom: 20px;
+}
+
+article p {
+    margin-bottom:20px;
+    color: #555;
+}
+
+body {
+    background-color: #dfdfdf;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px ;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.btn{
+    margin-top: auto;
+    display: inline-block;
+    text-align: center;
+    background-color: #004a8d;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #003366;
+}
+
+.btn-add{
+    background-color: #004a8d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px ;
+}
