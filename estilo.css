@@ -13,7 +13,7 @@ main {
 
 nav {
     width: 200px;
-    background-color: #592020;
+    background-color: #000000;
     padding: 20px;
 
     display: flex;
@@ -29,7 +29,7 @@ nav ul{
 }
 
 nav a {
-    color: #555555;
+    color: #ffffff;
     text-decoration: none;
     display: block;
     padding: 10px;
@@ -38,7 +38,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #34495e;
+    background-color: #434343;
     color: #555555;
     display: block;
     padding: 10px;
@@ -92,7 +92,7 @@ article p {
 }
 
 body {
-    background-color: #dfdfdf;
+    background-color: #646464;
     font-family: 'Courier New', Courier, monospace;
     color: #333333;
     display: flex;
