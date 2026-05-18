@@ -75,15 +75,6 @@
                 </tbody>
             </table>
 
-            <?php
-                    $nivelAcesso =2;
-                    if ($nivelAcesso == 2) {
-                        echo '<span class="badge ativo">administrador</span>';
-
-                    } else {
-                        echo '<span class="badge inativo">usuario</span>';
-                    }
-                    ?>
 
     </main>
     <script>

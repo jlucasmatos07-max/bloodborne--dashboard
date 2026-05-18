@@ -48,15 +48,7 @@
                         <option value="2">administrador</option>
                     </select>
 
-                    <?php
-                    $nivelAcesso =2;
-                    if ($nivelAcesso == 2) {
-                        echo '<span class="badge ativo">administrador</span>';
-
-                    } else {
-                        echo '<span class="badge inativo">usuario</span>';
-                    }
-                    ?>
+                
                  </div>
             </div>
             <div class="form-actions">
@@ -72,26 +64,8 @@
 <br><br>
 <a href="user_area.php">Ver usuários</a>
 <script>
-
-document.getElementById("card-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Impede o envio do formulário
-
-    let bancoUsusarios = JSON.parse(localStorage.getItem("bancoUsuarios")) || [];
-
-    const novoUsuario =  {
-        nome: document.getElementById("nome").value,
-        data: document.getElementById("data").value,
-        email: document.getElementById("email").value,
-        senha: document.getElementById("senha").value,
-        //nivel: document.getElementById("nivel").value
-    };
-
-    bancoUsuarios.push(novoUsuario);
-    localStorage.setItem("bancoUsuarios", JSON.stringify(bancoUsuarios));
-
-    alert("Usuário cadastrado com sucesso!");
-});
-
+    
+src="valida_login.js">
     </script>
 
     </body>
