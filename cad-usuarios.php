@@ -15,10 +15,10 @@
     <div class="dashboard-container">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="categorias.html">Categorias</a></li>
-                <li><a href="postagem.html">Postagem</a></li>
-                <li><a href="usuario.html">Usuario</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="postagem.php">Postagem</a></li>
+                <li><a href="usuario.php">Usuario</a></li>
             </ul>
             <div class="perfil-usuario">
                 <img src="https://ui-avatars.com/api/?name=V&background=008080&color=qwe" alt="Avatar">
@@ -60,7 +60,7 @@
 
                     <div class="form-actions">
                         <button class="btn-save" type="submit"><i class="fa-solid fa-check"></i> Finalizar Cadastro</button>
-                        <a class="btn-cancel" href="usuario.html" role="button">cancelar</a>
+                        <a class="btn-cancel" href="usuario.php" role="button">cancelar</a>
                     </div>
                 </form>
             </section>
@@ -104,7 +104,7 @@
             }
 
             localStorage.setItem('bancoUsuario', JSON.stringify(lista));
-            window.location.href = 'usuario.html';
+            window.location.href = 'usuario.php';
         });
     </script>
 </body>

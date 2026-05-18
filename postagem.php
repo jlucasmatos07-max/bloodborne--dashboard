@@ -15,10 +15,10 @@
     <div class="dashboard-container">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="categorias.html">Categorias</a></li>
-                <li><a href="postagem.html">Postagem</a></li>
-                <li><a href="usuario.html">Usuario</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="postagem.php">Postagem</a></li>
+                <li><a href="usuario.php">Usuario</a></li>
             </ul>
             <div class="perfil-usuario">
                 <img src="https://ui-avatars.com/api/?name=V&background=008080&color=qwe" alt="Avatar">
@@ -32,7 +32,7 @@
                     <h2>Gestão de Postagem</h2>
                     <p>Visualizar e gerenciar as permições de postagem</p>
                 </div>
-                <a href="cad-postagem.html" class="btn-add">Adicionar Postagem <i class="fa-solid fa-plus"></i></a>
+                <a href="cad-postagem.php" class="btn-add">Adicionar Postagem <i class="fa-solid fa-plus"></i></a>
             </div>
 
             <div class="table-responsive">

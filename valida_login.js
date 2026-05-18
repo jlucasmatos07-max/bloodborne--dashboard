@@ -9,7 +9,7 @@ document.getElementById('form-login').addEventListener('submit', function(e) {
 
     if (usuario) {
         sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
-        window.location.href = 'index.html';
+        window.location.href = 'index.php';
     } else {
         document.getElementById('msg-erro').style.display = 'block';
     }

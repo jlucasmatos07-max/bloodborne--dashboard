@@ -15,10 +15,10 @@
     <div class="dashboard-container">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="categorias.html">Categorias</a></li>
-                <li><a href="postagem.html">Postagem</a></li>
-                <li><a href="usuario.html">Usuario</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="postagem.php">Postagem</a></li>
+                <li><a href="usuario.php">Usuario</a></li>
             </ul>
             <div class="perfil-usuario">
                 <img src="https://ui-avatars.com/api/?name=V&background=008080&color=qwe" alt="Avatar">
@@ -32,7 +32,7 @@
                     <h2>Gestão de Usuário</h2>
                     <p>Visualizar e gerenciar as permições de usuário do sistema</p>
                 </div>
-                <a href="cad-usuarios.html" class="btn-add">Adicionar usuario <i class="fa-solid fa-plus"></i></a>
+                <a href="cad-usuarios.php" class="btn-add">Adicionar usuario <i class="fa-solid fa-plus"></i></a>
             </div>
 
             <div class="table-responsive">
@@ -98,7 +98,7 @@
         function editar(index) {
             const lista = JSON.parse(localStorage.getItem('bancoUsuario')) || [];
             sessionStorage.setItem('editUsuario', JSON.stringify({ index, dados: lista[index] }));
-            window.location.href = 'cad-usuarios.html';
+            window.location.href = 'cad-usuarios.php';
         }
 
         function excluir(index) {

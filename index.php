@@ -13,10 +13,10 @@
     <div class="dashboard-container">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="categorias.html">Categorias</a></li>
-                <li><a href="postagem.html">Postagem</a></li>
-                <li><a href="usuario.html">Usuario</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="postagem.php">Postagem</a></li>
+                <li><a href="usuario.php">Usuario</a></li>
             </ul>
             <div class="perfil-usuario">
                 <img src="https://ui-avatars.com/api/?name=V&background=008080&color=qwe" alt="Avatar">
@@ -30,13 +30,13 @@
                 <article>
                     <h2>Módulo de Usuários</h2>
                     <p>Gerenciador os acessos e permissões do sistema nesta área.</p>
-                    <a href="usuario.html" class="btn">Acessar</a>
+                    <a href="usuario.php" class="btn">Acessar</a>
                 </article>
 
                 <article>
                     <h2>Relatórios de vendas</h2>
                     <p>Acompanhar os gráficos de desempenho deste mês.</p>
-                    <a href="#" class="btn">Acessar</a>
+                    <a href="relatorios.html" class="btn">Acessar</a>
                 </article>
 
                 <article>
